@@ -2,3 +2,13 @@ docker compose up
 docker compose up -d -- libera o terminal 
 docker compose ps 
 docker compose logs --follow
+docker compose exec api ls 
+docker compose exec api /bin/bash
+docker exec exec api revision --autogenerate "initial"
+docker compose exec api alembic head --- history --
+docker compose exec api dundie user-list // shell
+
+em prod -- 
+DUNDIE_SECRET_KEY="SKSKSKS"
+entrar no container  e exec: DUNDIE_SECURITY_KEY="232" dundie shell
+

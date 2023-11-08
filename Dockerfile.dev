@@ -16,6 +16,9 @@ WORKDIR $APP_HOME
 COPY . $APP_HOME
 RUN pip install -r requirements-dev.txt
 RUN pip install -e .
+RUN pip uninstall psycopg2-binary -y
+RUN apt update -y && apt install -y build-essential libpq-dev
+RUN pip install psycopg2
 
 RUN chown -R app:app $APP_HOME
 USER app
